@@ -1,0 +1,174 @@
+Router0#config ter
+Router0#config terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router0(config)#serv
+Router0(config)#service dhcp
+Router0(config)#ip dh
+Router0(config)#ip dhcp pool 21net
+Router0(dhcp-config)#network 192.168.2.1 255.255.255.0
+Router0(dhcp-config)#dns
+Router0(dhcp-config)#dns-server 192.168.1.1
+Router0(dhcp-config)#dns
+Router0(dhcp-config)#dns-server 192.168.1.10
+Router0(dhcp-config)#defq
+Router0(dhcp-config)#def
+Router0(dhcp-config)#default-router 192.168.1.1
+Router0(dhcp-config)#ex
+Router0(dhcp-config)#exit 
+Router0(config)#int
+Router0(config)#interface fs
+Router0(config)#interface fa
+Router0(config)#interface fastEthernet 0/0
+Router0(config-if)#ex
+Router0(config-if)#exit 
+Router0(config)#host
+Router0(config)#hostname R
+Router0(config)#hostname Router0
+Router0(config)#interface fastEthernet 0/0
+Router0(config-if)#shu
+Router0(config-if)#shutdown 
+
+Router0(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to administratively down
+
+Router0(config-if)#no shut
+Router0(config-if)#no shut
+
+Router0(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+Router0(config-if)#ip add
+Router0(config-if)#ip address 192.168.2.1 255.255.255.0
+Router0(config-if)#no shu
+Router0(config-if)#no shutdown 
+Router0(config-if)#ex
+Router0(config-if)#exit 
+Router0(config)#ip dh
+Router0(config)#ip dhcp po
+Router0(config)#ip dhcp pool IP30
+Router0(dhcp-config)#net 192.168.2.0 255.255.255.0
+Router0(dhcp-config)#def
+Router0(dhcp-config)#default 192.168.2.1
+Router0(dhcp-config)#x
+Router0(dhcp-config)#ex
+Router0(dhcp-config)#exit 
+Router0(config)#ip dh
+Router0(config)#ip dhcp exc
+Router0(config)#ip dhcp excluded-address 192.168.2.1 192.168.2.99
+Router0(config)#ex
+Router0(config)#exit 
+Router0#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router0#cop
+Router0#copy run st
+Router0#copy run startup-config 
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+Router0#shoq run
+Router0#shoq runn
+Router0#show runn
+Router0#show running-config
+Building configuration...
+
+Current configuration : 803 bytes
+!
+version 12.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Router0
+!
+!
+!
+!
+ip dhcp excluded-address 192.168.2.1 192.168.2.99
+!
+ip dhcp pool IP30
+ network 192.168.2.0 255.255.255.0
+ default-router 192.168.2.1
+ip dhcp pool 21net
+ network 192.168.2.0 255.255.255.0
+ default-router 192.168.1.1
+ dns-server 192.168.1.10
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 192.168.2.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
+
+Router0#
+Router0#
+Router0#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+
+
+
+
+
+
+
+
+Router0 con0 is now available
